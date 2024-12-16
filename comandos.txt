@@ -1,0 +1,28 @@
+Metodo get
+
+curl http://localhost:3000/HTTPGet.php?resource_type=books -v | jq
+
+Metodo post
+
+curl -x 'POST' http://localhost:3000/HTTPGet.php?resource_type=books -d '{"titulo":"Nuevo libro", "id_autor":1, "id_genero":3}
+
+Metodo put
+
+curl -x 'PUT' http://localhost:3000/HTTPGet.php?resource_type=books&resource_id=1 -d '{"titulo":"Nuevo libro", "id_autor":1, "id_genero":3}
+
+Metodo delete
+
+curl -x 'DELETE' http://localhost:3000/HTTPGet.php?resource_type=books&resource_id=1
+
+
+
+Autenticacion con http
+
+curl http://david:1234@localhost:3000/HTTPGet.php?resource_type=books
+
+Es ineficiente y insegura
+
+
+Autenticacion con HMAC
+
+curl http://david:1234@localhost:3000/HTTPGet.php?resource_type=books -H 'X-HASH: d2uhjsdui22s' -H 'X-UID:1' -H 'X-TIMESTAMP:127621682162'
